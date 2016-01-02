@@ -34,7 +34,9 @@ defmodule ExTwilio.Mixfile do
   end
 
   defp deps do
-    [{:dialyxir, github: "linearregression/dialyxir", "~> 0.3", only: [:dev,:test]}]
+    [
+      {:dialyxir, github: "linearregression/dialyxir", tag: "~> 0.3", override: true, only: [:dev,:test]}
+    ]
   end
 
   dep plt_filename do
