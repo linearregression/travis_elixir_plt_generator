@@ -18,17 +18,16 @@ otp_release:
 - 17.1
 - 17.0
 before_script:
-- export PATH=`pwd`/elixir/bin:$PATH
 - git config user.name "Ed Tsang"
 - git config user.email "edwardt.tril@gmail.com"
-- mkdir -p _plt
+- mkdir -p plts
 - mix local.hex --force
 - mix deps.get
 - mix do archive.build, archive.install --force
 script:
 - MIX_ENV=test mix dialyzer.plt
 after_script:
-- git add _plt/*.plt
+- git add plts/*.plt
 - git commit -m "Deploy to GitHub"
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master > /dev/null 2>&1
 env:
