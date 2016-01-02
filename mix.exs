@@ -35,11 +35,11 @@ defmodule ExTwilio.Mixfile do
 
   defp deps do
     [
-      {:dialyxir, github: "linearregression/dialyxir", tag: "~> 0.3", override: true, only: [:dev,:test]}
+      {:dialyxir, github: "linearregression/dialyxir", branch: "master", override: true, only: [:dev,:test]}
     ]
   end
 
-  dep plt_filename do
+  def plt_filename do
     "otp-#{otp_release}_elixir-#{System.version}.plt"
   end
 
