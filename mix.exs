@@ -6,7 +6,9 @@ defmodule ExTwilio.Mixfile do
      version: "0.0.1",
      elixir: "~> 1.0",
      name: "Travis PLT Generator",
-     source_url: "https://github.com/danielberkompas/ex_twilio",
+     description: "travis_elixir_plt_generator generates dialyzer plt file for a matrix of otp and elixir releases then deploy using deploy.sh",
+     source_url: "https://github.com/linearregression/travis_elixir_plt_generator.git",
+     homepage_url: "https://github.com/linearregression/travis_elixir_plt_generator.git",
      dialyzer: [
         plt_add_apps: [:asn1,
           :crypto,
