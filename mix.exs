@@ -34,7 +34,7 @@ defmodule ExTwilio.Mixfile do
   end
 
   defp deps do
-    []
+    [{:dialyxir, "~> 0.3", only: [:dev,:test]}]
   end
 
   defp plt_filename do

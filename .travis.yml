@@ -1,34 +1,35 @@
 language: elixir
 elixir:
-- 1.0.0
-- 1.0.1
-- 1.0.2
-- 1.0.3
-- 1.0.4
-- 1.0.5
-- 1.1.0
-- 1.1.1
+  - 1.0.0
+  - 1.0.1
+  - 1.0.2
+  - 1.0.3
+  - 1.0.4
+  - 1.0.5
+  - 1.1.0
+  - 1.1.1
 otp_release:
-- 18.2
-- 18.1
-- 18.0
-- 17.4
-- 17.3
-- 17.1
-- 17.0
+  - 18.2
+  - 18.1
+  - 18.0
+  - 17.4
+  - 17.3
+  - 17.1
+  - 17.0
 before_script:
-- export PATH=`pwd`/elixir/bin:$PATH
-- git clone git://github.com/jeremyjh/dialyxir.git
-- cd dialyxir
-- mix archive.build
-- mix archive.install --force
-- cd ..
-- mix local.hex --force
-- mix deps.get --only test
+  - export PATH=`pwd`/elixir/bin:$PATH
+  - git config user.name "Ed Tsang"
+  - git config user.email "edwardt.tril@gmail.com"
+  - mkdir -p _plt 
+  - mix local.hex --force
+  - mix deps.get
+  - mix do archive.build, archive.install --force
 script:
-- MIX_ENV=test mix dialyzer.plt
+  - MIX_ENV=test mix dialyzer.plt
 after_script:
-- deploy.sh
+  - git add _plt/*.plt
+  - git commit -m "Deploy to GitHub"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master > /dev/null 2>&1
 env:
   global:
     secure: F++2cr1Bev7phJWDkGYe2JEhrHgGNd59XySnjJkMoF7qMhqsxgY9DleWmgIHBDyyuLFYrwPBCj2hCtRKYHtqSqsLkymg2zR5whXagfyvobQ79SMvrP/qyZV9TIstVTUlo3BgadDaPRa/mcX5OYUKa81JyJD0Nl4ITYWRGUA6VPkbdYuI761ZoHkSR8zsvjjbVpUufqQaR5R9t/PwZ2/+2bCLJ0sCV+DIh/akcZ7M4HDvtTXRNutthDc0TjGXa/5POXS+fLlORMrPJDQNbTUjCveKfzlVWtGFSAXMcim5Ypf2BMBjnOZmFZ9xpNTwEJSGbiRRrSfgAUf4h5mH4Fe7PI0VMznZJeLbJ3T73/sRcxWDEPx7KqWKcDvT5ihk9LFwO1YzeDRubIyNZJP3Px+qXstairXtI03h4D3ZX8EBMpy5KwNeuq6MEjjVE92f8v/yv/+4BHQcg8CpetQ/05kXpP7aKhm5I0e+x2D6UO8e7DrZsx/8mbzAiUKmh0Y8CEv5NTtj2ewiKd79HkKmxN3vw2ZkbB5E6a9SQ+wmlSk0LRtmk80cVlmm1dHjl7FYqBXO5D0o5hLkxjKwynl4hwLTigNL4isKMirnM8cHuYZA3sqOXsYhOgQ3ddM+407Cxxhd0CHMUJPE+zX8bMkmGN08oLN5SuBtK44bBVF+xhAD83E=
