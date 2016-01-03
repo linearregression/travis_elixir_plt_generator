@@ -29,7 +29,7 @@ script:
 
 before_deploy:
   - export RELEASE_PKG_FILE=$(ls plts/*.plt)
-  - echo "Deploying plt file: ${RELEASE_PKG_FILE} to GitHub releases"
+  - echo "Deploying plt file ${RELEASE_PKG_FILE} to GitHub releases"
 
 deploy:
   provider: releases
