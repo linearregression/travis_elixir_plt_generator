@@ -51,7 +51,7 @@ defmodule ExTwilio.Mixfile do
   end
   defp elixir_release do
     case System.get_env("TRAVIS_ELIXIR_VERSION") do
-      nil     -> #{System.version}
+      nil     -> System.version
       release -> release
     end
   end
