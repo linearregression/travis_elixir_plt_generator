@@ -44,5 +44,6 @@ deploy:
   skip_cleanup: true
   on:
     repo: linearregression/travis_elixir_plt_generator
+    branch: master
     tags: true
     
