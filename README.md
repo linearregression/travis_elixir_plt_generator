@@ -1,4 +1,4 @@
-# Travis Elixir PLT Generator
+# Travis Elixir PLT Generator [![Build Status](https://travis-ci.org/linearregression/travis_elixir_plt_generator.svg?branch=master)](https://travis-ci.org/linearregression/travis_elixir_plt_generator)
 
 Generate PLTs for your Elixir project, so you can run Dialyzer on Travis without
 slowing your builds.
