@@ -17,6 +17,58 @@ otp_release:
 - 17.3
 - 17.1
 - 17.0
+
+matrix:
+  exclude:
+    - elixir: 1.2.0
+      otp_release: 17.0
+    - elixir: 1.2.0
+      otp_release: 17.1
+    - elixir: 1.2.0
+      otp_release: 17.3
+    - elixir: 1.2.0
+      otp_release: 17.4
+    - elixir: 1.1.1
+      otp_release: 18.2
+    - elixir: 1.1.1
+      otp_release: 18.1
+    - elixir: 1.1.1
+      otp_release: 18.0
+    - elixir: 1.0.4
+      otp_release: 18.2
+    - elixir: 1.0.4
+      otp_release: 18.1
+    - elixir: 1.0.4
+      otp_release: 18.0
+    - elixir: 1.0.3
+      otp_release: 18.2
+    - elixir: 1.0.3
+      otp_release: 18.1
+    - elixir: 1.0.3
+      otp_release: 18.0
+    - elixir: 1.0.2
+      otp_release: 18.2
+    - elixir: 1.0.2
+      otp_release: 18.1
+    - elixir: 1.0.2
+      otp_release: 18.0
+    - elixir: 1.0.1
+      otp_release: 18.2
+    - elixir: 1.0.1
+      otp_release: 18.1
+    - elixir: 1.0.1
+      otp_release: 18.0
+    - elixir: 1.0.1
+      otp_release: 17.0
+    - elixir: 1.0.0
+      otp_release: 18.2
+    - elixir: 1.0.0
+      otp_release: 18.1
+    - elixir: 1.0.0
+      otp_release: 18.0
+    - elixir: 1.0.0
+      otp_release: 17.0
+
 before_script:
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
