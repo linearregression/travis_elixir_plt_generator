@@ -40,7 +40,7 @@ defmodule ExTwilio.Mixfile do
   end
 
   def plt_filename do
-    "otp-#{otp_release}-elixir-#{System.version}.plt"
+    "otp-#{otp_release}-elixir-#{elixir_release}.plt"
   end
 
   defp otp_release do
@@ -49,5 +49,10 @@ defmodule ExTwilio.Mixfile do
       release -> release
     end
   end
+  defp elixir_release do
+    case System.get_env("TRAVIS_ELIXIR_VERSION") do
+      nil     -> #{System.version}
+      release -> release
+    end
+  end
 end
-
