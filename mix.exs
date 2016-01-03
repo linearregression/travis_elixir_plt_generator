@@ -40,7 +40,7 @@ defmodule ExTwilio.Mixfile do
   end
 
   def plt_filename do
-    "otp-#{otp_release}_elixir-#{System.version}.plt"
+    "otp-#{otp_release}-elixir-#{System.version}.plt"
   end
 
   defp otp_release do
