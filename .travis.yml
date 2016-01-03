@@ -32,7 +32,6 @@ before_deploy:
   - echo "Deploying plt file $RELEASE_PKG_FILE to GitHub releases"
   - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://$TAGPERM@github.com/linearregression/travis_elixir_plt_generator --tags
   - ls -R
 
 deploy:
@@ -43,5 +42,5 @@ deploy:
   skip_cleanup: true
   on:
     repo: linearregression/travis_elixir_plt_generator
-    tags: true
+    tags: false
     
