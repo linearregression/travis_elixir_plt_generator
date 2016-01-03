@@ -1,22 +1,23 @@
 language: elixir
+
 elixir:
-- 1.0.0
-- 1.0.1
-- 1.0.2
-- 1.0.3
-- 1.0.4
-- 1.0.5
-- 1.1.0
-- 1.1.1
-- 1.2.0
+  - 1.0.0
+  - 1.0.1
+  - 1.0.2
+  - 1.0.3
+  - 1.0.4
+  - 1.0.5
+  - 1.1.0
+  - 1.1.1
+  - 1.2.0
 otp_release:
-- 18.2
-- 18.1
-- 18.0
-- 17.4
-- 17.3
-- 17.1
-- 17.0
+  - 18.2
+  - 18.1
+  - 18.0
+  - 17.4
+  - 17.3
+  - 17.1
+  - 17.0
 
 matrix:
   exclude:
@@ -70,14 +71,14 @@ matrix:
       otp_release: 17.0
 
 before_script:
-- git config --global user.email "builds@travis-ci.com"
-- git config --global user.name "Travis CI"
-- mkdir -p plts
-- mix local.hex --force
-- mix deps.get
-- mix do archive.build, archive.install --force
+  - git config --global user.email "builds@travis-ci.com"
+  - git config --global user.name "Travis CI"
+  - mkdir -p plts
+  - mix local.hex --force
+  - mix deps.get
+  - mix do archive.build, archive.install --force
 script:
-- MIX_ENV=test mix dialyzer.plt
+  - MIX_ENV=test mix dialyzer.plt
 
 before_deploy:
   - export RELEASE_PKG_FILE=$(ls plts/*.plt)
@@ -85,6 +86,7 @@ before_deploy:
   - export GIT_TAG=otp-$TRAVIS_OTP_RELEASE-elixir-$TRAVIS_ELIXIR_VERSION
   - echo "Generated git tag $GIT_TAG for deployment"
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git push origin $TRAVIS_BRANCH --tags
   - ls -R
 
 deploy:
