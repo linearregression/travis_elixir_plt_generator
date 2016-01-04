@@ -1,0 +1,1 @@
+%{"dialyxir": {:git, "https://github.com/linearregression/dialyxir.git", "5c6bbc0a301a6be432ddf9d54fb5d3fcf0296c0b", [branch: "master"]}}
