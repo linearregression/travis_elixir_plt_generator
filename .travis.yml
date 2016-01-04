@@ -79,10 +79,10 @@ env:
   - secure: p/d5B8sM9erdgQP0Qzu8SnjcrWrVnEFyS3l3qFRAvmygaubc3JqUFp5CvKueBhLzah02HGm648cyEvRGrkikjA4URsCJu0bQlQQoM+qEluGD4LqDHOSpgnALFDp40WjV+uMGYzolnfQdhDBLvJhIuYCebtEuWogCd7PpqUb0gaEoetX7g3eA9fx/9lz5xbqmwdy6VlALFLnovBUlbZBa9H7wEhrSj/08qrVOSNrAKrk1AfXQ1G3Ed6mJx0tgcR3N0DTMGeX7tVBHVd+wEQcjWYcnvXwBv7sFfOqB1aQ/MXBtwUk8pMXIkq05AP21E9IJiR4+C329Y0HUmDJwOVWHkQHXkC1hHqcW/xcACPYfnpv5JLwzX6OZ41/KzRurUl+3VjBS5NhLni2EUEsr9RPtDG7G6Igu9jB264lA8ZEq7TbYnLBl2qwqAPVgdnpwxhQszg8RSlj7i5gHn2MtwmRGsG0fdsdiKWaQlWnYB1BU+irDDLxT2k0QPVDve7nUN53r6XD4IJ4lo4sWtvHo0W1ueH3eddD6y3WoTcuo5jdN3vA5NYIW+qWercIPsU2VJZk1Ao8VMUPgG5k8B9NeeaRLS+tOFW7jLkNcR2o6GkQQwXJStvP886eaoglMKf5o3CPE6XOoXwvb6+qWoFUiwnpfx7SqvN+ps+8J/MjrL0v9gb4=
   - secure: tYK9YLj5MFR3czEHNjNuLrlZNViRQIz99mLUzHfaLw/zx1n30B1tj2agbdE5y/FDu0MjljmvYLRuXbj1St+zavHPuJGoWvRJwKht9+YsOaYJxpjhljmm7LsVi5jNvnwOKd1mS8h/u1UbcJtd2b9oRlCPBHC9iDpW0tSAqptyIv1pIT90/aP8SYYeaUGjUCDlUD5cH/cEwyDXEDlJ1Rpd0FuMY3C2d3sJdswyKdQjollzzuIdJ+378g15SYnTv2V/8eTsP7rA+9aO2hZb6ARBvAYkUkdPH/MgwhPP1DxStZwNUWxBalhSCSzydudYbrNcmdS/sW6REp8H42dXQjGwOtZCiU6A20Bdy3JdRmb44gNpJdIAQ7gN5fOraC7uVy+I/IBPLN/x+zDjHwLBUSa75jXCEK1A9cQoJoy8DBnpEVj0yNidFIC0Ncn09vhkmGrPqHkbxMwkWMFel6A0DjopEU33IuqZXwj/kHcPxE5ZX3hsRGMe/v9iIk4nI2JJbG818gXALIP2LRxjIVOF5jtlv2a673j7NaPAvlk6kT5WSceP0KR9REsPLwEpGUXx7J5vupTty+IB3QysKjyBYxhhrJa9GoDTIqAMwS2d/h4frp7eG+dBwmp8kcYMUasvhr7maBx2eZiRojMrFeYOLRYRmPxeuLh3TTMvRGVM0gEJMaE=
 before_script:
-- git config --global user.email "edwardt.tril@gmail.com"
-- git config --global user.name "edwardttril"
+- git config --global user.email ${GIT_EMAIL}
+- git config --global user.name ${GIT_NAME}
 - git remote rm origin
-- git remote add origin ${GIT_REF}
+- git remote add origin ${GH_REF}
 - mkdir -p plts
 - mix local.hex --force
 - mix deps.get
