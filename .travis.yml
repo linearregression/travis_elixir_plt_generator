@@ -82,8 +82,6 @@ env:
 before_script:
 - git config --global user.email ${GIT_EMAIL}
 - git config --global user.name ${GIT_NAME}
-- echo "Elixir verson: $TRAVIS_ELIXIR_VERSION"
-- echo "Erlang OTP Release: $TRAVIS_OTP_RELEASE"
 #- git remote rm origin
 #- git remote add origin ${GH_REF}
 - mkdir -p plts
@@ -91,6 +89,8 @@ before_script:
 - mix deps.get
 - mix do archive.build, archive.install --force
 script:
+- echo "Elixir verson: $TRAVIS_ELIXIR_VERSION"
+- echo "Erlang OTP Release: $TRAVIS_OTP_RELEASE"
 - MIX_ENV=test mix dialyzer.plt
 after_success:
 - export RELEASE_PKG_FILE=$(ls plts/*.plt)
