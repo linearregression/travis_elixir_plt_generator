@@ -98,7 +98,7 @@ before_deploy:
 - git add -f ${RELEASE_PKG_FILE}
 - git commit -m "Deploying ${RELEASE_PKG_FILE}"
 - git push origin master --repo=${GH_POST_REF}
-- git push --follow-tags https://${GH_TOKEN}@github.com/${GIT_NAME}/travis_elixir_plts.git
+- git push --follow-tags --repo=${GH_POST_REF}
 - git fetch --all
 - ls -R plts/*
 deploy:
