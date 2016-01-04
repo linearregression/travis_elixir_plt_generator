@@ -99,6 +99,8 @@ before_deploy:
 - git fetch --tags
 - git add -f ${RELEASE_PKG_FILE}
 - git commit -m "Deploying ${RELEASE_PKG_FILE}"
+- git push origin master
+- git fetch --all
 - ls -R plts/*
 deploy:
   provider: releases
