@@ -89,8 +89,8 @@ before_script:
 - mix deps.get
 - mix do archive.build, archive.install --force
 script:
-- echo "Elixir verson: $TRAVIS_ELIXIR_VERSION"
-- echo "Erlang OTP Release: $TRAVIS_OTP_RELEASE"
+#- echo "Elixir verson: $TRAVIS_ELIXIR_VERSION"
+#- echo "Erlang OTP Release: $TRAVIS_OTP_RELEASE"
 - MIX_ENV=test mix dialyzer.plt
 after_success:
 - export RELEASE_PKG_FILE=$(ls plts/*.plt)
