@@ -89,7 +89,7 @@ before_deploy:
 - echo "Deploying plt file $RELEASE_PKG_FILE to GitHub releases"
 - git fetch --tags
 - git add -f ${RELEASE_PKG_FILE}
-- git commit -m ""Deploying ${RELEASE_PKG_FILE}"
+- git commit -m "Deploying ${RELEASE_PKG_FILE}"
 - ls -R plts/*
 deploy:
   provider: releases
