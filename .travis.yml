@@ -86,7 +86,9 @@ before_deploy:
 - export RELEASE_PKG_FILE=$(ls plts/*.plt)
 - echo "Deploying plt file $RELEASE_PKG_FILE to GitHub releases"
 - export GIT_TAG=otp-$TRAVIS_OTP_RELEASE-elixir-$TRAVIS_ELIXIR_VERSION
+- git checkout master
 - git tag $GIT_TAG -a -f -m "Generated tag $GIT_TAG from TravisCI for build $TRAVIS_BUILD_NUMBER"
+- git push --follow-tags
 - git fetch --tags
 - git add -f ${RELEASE_PKG_FILE}
 - git commit -m "Deploying ${RELEASE_PKG_FILE}"
