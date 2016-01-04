@@ -82,6 +82,8 @@ env:
 before_script:
 - git config --global user.email ${GIT_EMAIL}
 - git config --global user.name ${GIT_NAME}
+- echo "Elixir verson: $TRAVIS_ELIXIR_VERSION"
+- echo "Erlang OTP Release: $TRAVIS_OTP_RELEASE"
 #- git remote rm origin
 #- git remote add origin ${GH_REF}
 - mkdir -p plts
