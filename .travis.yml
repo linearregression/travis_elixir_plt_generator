@@ -95,7 +95,7 @@ before_deploy:
 - export GIT_TAG=otp-$TRAVIS_OTP_RELEASE-elixir-$TRAVIS_ELIXIR_VERSION
 - git checkout master
 - git tag $GIT_TAG -a -f -m "Generated tag $GIT_TAG from TravisCI for build $TRAVIS_BUILD_NUMBER"
-- git push --follow-tags https://linearregression:${GH_TOKEN}@github.com/user/repo.git
+- git push --follow-tags https://${GIT_NAME}:${GH_TOKEN}@github.com/user/repo.git
 - git fetch --tags
 - git add -f ${RELEASE_PKG_FILE}
 - git commit -m "Deploying ${RELEASE_PKG_FILE}"
