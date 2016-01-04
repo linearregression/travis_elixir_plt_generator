@@ -100,6 +100,6 @@ deploy:
   file_glob: true
   file: "${RELEASE_PKG_FILE}"
   skip_cleanup: true
-  all_branches: true
   on:
     repo: linearregression/travis_elixir_plt_generator
+    branch: master
