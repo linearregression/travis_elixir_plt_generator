@@ -90,7 +90,7 @@ before_script:
 - mix do archive.build, archive.install --force
 script:
 - MIX_ENV=test mix dialyzer.plt
-before_deploy:
+after_success:
 - export RELEASE_PKG_FILE=$(ls plts/*.plt)
 - echo "Deploying plt file $RELEASE_PKG_FILE to GitHub releases"
 - export GIT_TAG=otp-$TRAVIS_OTP_RELEASE-elixir-$TRAVIS_ELIXIR_VERSION
@@ -102,11 +102,4 @@ before_deploy:
 - git push --follow-tags --repo=https://${GH_PTOKEN}@github.com/linearregression/travis_elixir_plts.git
 - git fetch --all
 - ls -R plts/*
-deploy:
-  provider: releases
-  file_glob: true
-  file: ${RELEASE_PKG_FILE}
-  skip_cleanup: true
-  on:
-    repo: linearregression/travis_elixir_plt_generator
-    branch: master
+
